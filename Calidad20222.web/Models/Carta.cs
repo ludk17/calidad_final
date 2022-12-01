@@ -66,18 +66,4 @@ public class Carta
             new Carta { Numero = 13, Palo = Models.Palo.ESPADA },
         };
     }
-
-    public List<Jugador> Repartir(int numJugadores)
-    {
-        var rng = new Random();
-        var shuffledcards = Todas().OrderBy(a => rng.Next()).ToList();
-        var jugadores = new List<Jugador>();
-        for (var i = 0; i < numJugadores; i++)
-        {
-                jugadores.Add(new Jugador {Id = i + 1, Nombre = "Jugador " + 1, Cartas = shuffledcards.Skip(i*5).Take(5).ToList()});
-        }
-
-        return jugadores;
-    }
-    
 }
